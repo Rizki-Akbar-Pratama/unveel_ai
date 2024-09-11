@@ -1,0 +1,64 @@
+name: unveels
+description: "A new Flutter project."
+publish_to: "none"
+version: 0.1.0
+
+environment:
+  sdk: ">=3.2.0 <4.0.0"
+
+dependencies:
+  auto_size_text: ^3.0.0
+  cached_network_image: ^3.4.0
+  camera: ^0.10.6
+  chewie: ^1.8.3
+  dotted_border: ^2.1.0
+  equatable: ^2.0.5
+  flutter:
+    sdk: flutter
+  flutter_bloc: ^8.1.6
+  flutter_localizations:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  fluttertoast: ^8.2.6
+  get_it: ^7.7.0
+  go_router: ^14.2.3
+  google_fonts: ^6.2.1
+  image_picker: ^1.1.2
+  path_provider: ^2.1.4
+  permission_handler: ^11.3.1
+  readmore: ^3.0.0
+  share_plus: ^10.0.1
+  video_player: ^2.9.1
+  image: ^4.2.0
+  exif: ^3.1.4
+  tflite_flutter: ^0.10.4
+
+dev_dependencies:
+  flutter_lints: ^3.0.0
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  generate: true
+
+  assets:
+    - pubspec.yaml
+    - assets/icons/
+    - assets/images/
+    - assets/personality_finder/Cheekbones_model.tflite
+    - assets/personality_finder/Eye-Angle_model.tflite
+    - assets/personality_finder/Eye-Distance_model.tflite
+    - assets/personality_finder/Eye-Shape_model.tflite
+    - assets/personality_finder/Eye-Size_model.tflite
+    - assets/personality_finder/Eyebrow-Distance_model.tflite
+    - assets/personality_finder/Eyebrow-Shape_model.tflite
+    - assets/personality_finder/Eyelid_model.tflite
+    - assets/personality_finder/Face-Shape_model.tflite
+    - assets/personality_finder/Lip_model.tflite
+    - assets/personality_finder/Nose-Length_model.tflite
+    - assets/personality_finder/Nose-Width_model.tflite
+    - assets/personality_finder/Thickness_model.tflite
+    - assets/personality_finder/Thinnes_model.tflite
+    - assets/age-model/model_lite_age_nonq.tflite
+    - assets/face-mesh/face_mesh.tflite

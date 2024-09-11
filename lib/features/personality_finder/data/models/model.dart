@@ -1,0 +1,16 @@
+const String Cheek_Bones ="assets/personality_finder/Cheekbones_model.tflite";
+const String Eye_Angle = "assets/personality_finder/Eye-Angle_model.tflite";
+const String Eye_Distance = "assets/personality_finder/Eye-Distance_model.tflite";
+const String Eye_Shape = "assets/personality_finder/Eye-Shape_model.tflite";
+const String Eye_Size = "assets/personality_finder/Eye-Size_model.tflite";
+const String Eyebrow_Distance = "assets/personality_finder/Eyebrow-Distance_model.tflite";
+const String Eyebrow_Shape = "assets/personality_finder/Eyebrow-Shape_model.tflite";
+const String Eyelid = "assets/personality_finder/Eyelid_model.tflite";
+const String Face_Shape = "assets/personality_finder/Face-Shape_model.tflite";
+const String Lip_Model = "assets/personality_finder/Lip_model.tflite";
+const String Nose_Length = "assets/personality_finder/Nose-Length_model.tflite";
+const String Nose_Width = "assets/personality_finder/Nose-Width_model.tflite";
+const String Thickness = "assets/personality_finder/Thickness_model.tflite";
+const String Thinnes = "assets/personality_finder/Thinnes_model.tflite";
+const String Age  = "assets/age-model/model_lite_age_nonq.tflite";
+const String Face_Mesh = "assets/face-mesh/face_mesh.tflite";

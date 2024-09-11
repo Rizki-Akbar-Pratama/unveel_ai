@@ -1,0 +1,14 @@
+const List<String> Cheeksbones = ['High Cheeks', 'Low Cheeks', 'Round Cheeks'];
+const List<String> Eyeangle = ['Downturned', 'Neutral', 'Upturned'];
+const List<String> Eyedistance = ['Average-Set', 'Close-set', 'Wide-Set'];
+const List<String> Eyeshape = ['Almond', 'Downturned', 'Monolid', 'Round', 'Upturned', 'Hooded'];
+const List<String> Eyesize = ['Large', 'Medium', 'Small'];
+const List<String> Eyebrowdistance = ['Close', 'Proportioned', 'Wide'];
+const List<String> Eyebrowshape = ['Curved', 'High-Arch', 'S-Shaped', 'Soft-Arch', 'Straight', 'Upward'];
+const List<String> EyeLid = ['Double-lids','Monolids'];
+const List<String> Faceshape = ['Heart', 'Oval', 'Round', 'Square'];
+const List<String> Lip = ['Full-lips', 'Heart-lips', 'Heavy-lower-lips', 'Heavy-upper-lips', 'Round-lips', 'Thin-lips', 'Wide-Lips'];
+const List<String> NoseLength = ['Average', 'Long', 'Short'];
+const List<String> NoseWidth = ['Broad', 'Medium', 'Narrow'];
+const List<String> ThickNess = ['Dense', 'Medium','Sparse'];
+const List<String> ThinNes = ['Normal', 'Thick','Thin'];
