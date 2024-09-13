@@ -62,3 +62,4 @@ flutter:
     - assets/personality_finder/Thinnes_model.tflite
     - assets/age-model/model_lite_age_nonq.tflite
     - assets/face-mesh/face_mesh.tflite
+    - assets/personality_finder/personality_finder.tflite

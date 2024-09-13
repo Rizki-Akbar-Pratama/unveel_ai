@@ -8,11 +8,13 @@ import '../../../../shared/configs/size_config.dart';
 class PFAnalysisDetailsWidget extends StatelessWidget {
   final String title;
   final String description;
+  final String score;
 
   const PFAnalysisDetailsWidget({
     super.key,
     required this.title,
     required this.description,
+    required this.score,
   });
 
   @override
@@ -76,9 +78,9 @@ class PFAnalysisDetailsWidget extends StatelessWidget {
               const SizedBox(
                 height: 5,
               ),
-              const Text(
-                "Mild 40%",
-                style: TextStyle(
+               Text(
+                score,
+                style: const TextStyle(
                   fontSize: 14,
                   color: ColorConfig.greenSuccess,
                 ),

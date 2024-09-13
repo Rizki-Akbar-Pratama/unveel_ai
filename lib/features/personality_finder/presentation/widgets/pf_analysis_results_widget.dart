@@ -10,6 +10,7 @@ import '../../../../shared/configs/asset_path.dart';
 import '../../../../shared/configs/color_config.dart';
 import '../../../../shared/configs/size_config.dart';
 import '../../../../shared/extensions/pf_tab_bar_parsing.dart';
+import '../../data/models/labels.dart';
 import 'pf_attributes_analysis_widget.dart';
 import 'pf_personality_analysis_widget.dart';
 import 'pf_recommendations_analysis_widget.dart';
@@ -46,18 +47,20 @@ class _PFAnalysisResultsWidgetState extends State<PFAnalysisResultsWidget> {
                   Column(
                     children: [
                       ClipOval(child:
-                        Image.file(
-                          File(widget.profile!.path),
-                          width: 108,
-                          height: 108,
-                        ),
+                      Image.file(
+                        File(widget.profile!.path),
+                        width: 108,
+                        height: 108,
+                      ),
                       ),
                       const SizedBox(
                         height: 10,
                       ),
-                      const Text(
-                        "Extravert",
-                        style: TextStyle(
+                      Text(
+                        widget.recognition != null && widget.recognition!.isNotEmpty
+                            ? widget.recognition![0].personality ?? "Unknown Personality"
+                            : "No Prediction",
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 12,
                         ),
@@ -77,11 +80,11 @@ class _PFAnalysisResultsWidgetState extends State<PFAnalysisResultsWidget> {
                         const SizedBox(
                           width: 8,
                         ),
-                        const Expanded(
+                        Expanded( // Hapus 'const' di sini
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(
+                              const Text( // Tambahkan 'const' di sini jika teksnya statis
                                 "AI Personality Analysis :",
                                 style: TextStyle(
                                   color: Colors.white,
@@ -89,8 +92,8 @@ class _PFAnalysisResultsWidgetState extends State<PFAnalysisResultsWidget> {
                                 ),
                               ),
                               Text(
-                                "Your face attributes indicate you enjoy interacting with people and are full of energy. Extraversions tend to be enthusiastic, action-oriented, and very social. You're the friendly, inviting individual who likes to talk and connect with people.",
-                                style: TextStyle(
+                                Personality_Analysis[widget.recognition?[0].personalityScore?[0]?['index'] ?? 0],
+                                style: const TextStyle(
                                   color: Colors.white,
                                   fontSize: 12,
                                 ),
@@ -129,7 +132,7 @@ class _PFAnalysisResultsWidgetState extends State<PFAnalysisResultsWidget> {
             Expanded(
               child: TabBarView(
                 children: [
-                  const PFPersonalityAnalysisWidget(),
+                  PFPersonalityAnalysisWidget(recognition: widget.recognition,),
                   PFAttributesAnalysisWidget(recognition: widget.recognition,),
                   const PfRecommendationsAnalysisWidget(),
                 ],

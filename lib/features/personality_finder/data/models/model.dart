@@ -14,3 +14,4 @@ const String Thickness = "assets/personality_finder/Thickness_model.tflite";
 const String Thinnes = "assets/personality_finder/Thinnes_model.tflite";
 const String Age  = "assets/age-model/model_lite_age_nonq.tflite";
 const String Face_Mesh = "assets/face-mesh/face_mesh.tflite";
+const String Personality_Finder = "assets/personality_finder/personality_finder.tflite";

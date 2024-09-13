@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:unveels/features/personality_finder/data/models/recognition.dart';
 
 import '../../../../shared/configs/color_config.dart';
 import 'pf_alaysis_details_widget.dart';
+import '../../data/models/labels.dart';
 
 class PFPersonalityAnalysisWidget extends StatelessWidget {
-  const PFPersonalityAnalysisWidget({super.key});
+  final List<Recognition>? recognition;
+  const PFPersonalityAnalysisWidget({super.key, required this.recognition});
 
   @override
   Widget build(BuildContext context) {
@@ -70,8 +73,8 @@ class PFPersonalityAnalysisWidget extends StatelessWidget {
               const SizedBox(
                 height: 20,
               ),
-              const Padding(
-                padding: EdgeInsets.symmetric(
+              Padding(
+                padding: const EdgeInsets.symmetric(
                   horizontal: 20,
                 ),
                 child: Row(
@@ -81,29 +84,29 @@ class PFPersonalityAnalysisWidget extends StatelessWidget {
                         children: [
                           _LegendItemWidget(
                             color: ColorConfig.yellow,
-                            value: 95,
-                            label: "Extraversion",
+                            value: (recognition?[0].personalityScore[0]['value'] as double).toInt(),
+                            label: Personality[recognition?[0].personalityScore[0]['index']],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           _LegendItemWidget(
                             color: ColorConfig.pink,
-                            value: 25,
-                            label: "Conscientiousness",
+                            value: (recognition?[0].personalityScore[1]['value'] as double).toInt(),
+                            label: Personality[recognition?[0].personalityScore[1]['index']],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
                           _LegendItemWidget(
                             color: ColorConfig.oceanBlue,
-                            value: 66,
-                            label: "Openness to Experience",
+                            value: (recognition?[0].personalityScore[2]['value'] as double).toInt(),
+                            label: Personality[recognition?[0].personalityScore[2]['index']],
                           ),
                         ],
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 20,
                     ),
                     Expanded(
@@ -111,16 +114,16 @@ class PFPersonalityAnalysisWidget extends StatelessWidget {
                         children: [
                           _LegendItemWidget(
                             color: ColorConfig.green,
-                            value: 80,
-                            label: "Agreeableness",
+                            value: (recognition?[0].personalityScore[3]['value'] as double).toInt(),
+                            label: Personality[recognition?[0].personalityScore[3]['index']],
                           ),
-                          SizedBox(
+                          const SizedBox(
                             height: 15,
                           ),
-                          _LegendItemWidget(
+                           _LegendItemWidget(
                             color: ColorConfig.purple,
-                            value: 40,
-                            label: "Neuroticism",
+                            value: (recognition?[0].personalityScore[4]['value'] as double).toInt(),
+                            label: Personality[recognition?[0].personalityScore[4]['index']],
                           ),
                         ],
                       ),
@@ -130,30 +133,34 @@ class PFPersonalityAnalysisWidget extends StatelessWidget {
               ),
             ],
           ),
-          const PFAnalysisDetailsWidget(
-            title: "Openness",
+          PFAnalysisDetailsWidget(
+            title: Personality[recognition?[0].personalityScore[0]['index']],
             description:
-                "People with an open personality are known for their vibrant imagination, curiosity, and eagerness to explore new ideas and experiences. You have a strong desire for novelty and diversity, and you're open to different perspectives and ways of thinking. With the trait of openness, you tend to be creative, flexible, and adaptable and are often receptive to change and innovation.\nYou're obsessed with discovering new cultures, concepts, and opportunities, and are willing to challenge conventional norms and beliefs. Overall, those with an open personality bring a sense of wonder and enthusiasm to their interactions and endeavours. Thus, here is your recommendation list from Unveels based on having an Open Personality",
+                Description[recognition?[0].personalityScore[0]['index']],
+            score: '${((recognition?[0].personalityScore?[0]?['value'])).toStringAsFixed(1)}%',
           ),
-          const PFAnalysisDetailsWidget(
-            title: "Neuroticism",
+          PFAnalysisDetailsWidget(
+            title: Personality[recognition?[0].personalityScore[1]['index']],
             description:
-                "Neuroticism , as a personality trait, reflects an individual's tendency to experience negative emotions such as anxiety, depression, and moodiness. People high in neuroticism may be more prone to worry, stress, and self-doubt, they often react strongly to perceived threats or challenges. Those low in neuroticism, on the other hand, tend to be more emotionally stable and resilient in the face of adversity. Thus, here's your bespoke recommendation list from Unveels based on your Neuroticism.",
+            Description[recognition?[0].personalityScore[1]['index']],
+            score: '${((recognition?[0].personalityScore?[1]?['value'])).toStringAsFixed(1)}%',
           ),
-          const PFAnalysisDetailsWidget(
-            title: "Agreeableness",
-            description:
-                "People with an Agreeable personality reveal their kind-hearted and compassionate nature; characterized by a strong desire to maintain harmonious relationships.\nPeople, high in agreeableness, are often cooperative, empathetic, and considerate towards others; making them valuable team players and supportive friends.\nThey prioritize the needs of others and are willing to go out of their way to help and support those around them. Their warm and nurturing behaviour makes them approachable and easy to get along with, fostering a sense of trust and camaraderie in their social interactions.\n\nIn short, your agreeable personality is a key aspect of your character and it influences your interactions and relationships with others.\nUnveels has prepared a customized recommendation list based on your agreeable personality.",
+          PFAnalysisDetailsWidget(
+            title: Personality[recognition?[0].personalityScore[2]['index']],
+            description: Description[recognition?[0].personalityScore[2]['index']],
+              score: '${((recognition?[0].personalityScore?[2]?['value'])).toStringAsFixed(1)}%',
           ),
-          const PFAnalysisDetailsWidget(
-            title: "Extraversion",
+          PFAnalysisDetailsWidget(
+            title: Personality[recognition?[0].personalityScore[3]['index']],
             description:
-                "An extravert personality provides insights into an individual's social behaviour and interaction preferences.\nExtraverts are known for their outgoing, energetic, and talkative nature. They thrive in social settings, seek excitement, and enjoy being the center of attention. Extraverts are often described as sociable, assertive, and enthusiastic individuals who are comfortable in group settings and have a wide circle of friends.\nThis also delves into the extraversion traits; highlighting that they're strong in communication, leadership, and relationship-building skills.\nTherefore, here's what Unveels suggests for you based on your Extraversion.",
+            Description[recognition?[0].personalityScore[3]['index']],
+              score: '${((recognition?[0].personalityScore?[3]?['value'])).toStringAsFixed(1)}%'
           ),
-          const PFAnalysisDetailsWidget(
-            title: "Conscientiousness",
+          PFAnalysisDetailsWidget(
+            title: Personality[recognition?[0].personalityScore[4]['index']],
             description:
-                "Conscientiousness is a key personality trait that reflects an individual's tendency to be organized, responsible, and goal-oriented. People high in conscientiousness are known for their reliability, diligence, and attention to detail; moreover, they're often diligent in their work, follow through on tasks, and are typically well-prepared.\n\nUnveels has unveiled the Conscientious side of your personality; and here's your recommended list based on it.",
+            Description[recognition?[0].personalityScore[4]['index']],
+              score: '${((recognition?[0].personalityScore?[4]?['value'])).toStringAsFixed(1)}%'
           ),
         ],
       ),

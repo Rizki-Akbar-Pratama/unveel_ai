@@ -20,16 +20,16 @@ class PFAttributesAnalysisWidget extends StatelessWidget {
       ),
       child: Column(
         children: [
-          const _BodyItemWidget(
+           _BodyItemWidget(
             title: "Face",
             iconPath: IconPath.face,
             leftChildren: [
               _DetailBodyItem(
                 title: "Face Shape",
-                value: "Heart",
+                value: recognition?[0].thickness, //_Reverse
               ),
             ],
-            rightChildren: [
+            rightChildren: const [
               _DetailBodyItem(
                 title: "Skin Tone",
                 value: "Dark latte",
@@ -45,29 +45,29 @@ class PFAttributesAnalysisWidget extends StatelessWidget {
             leftChildren: [
               _DetailBodyItem(
                 title: "Eye Shape",
-                value: recognition?[0].cheekbones,
+                value: recognition?[0].eyeshape,
               ),
               _DetailBodyItem(
                 title: "Eye Angle",
                 value: recognition?[0].eyeangle,
               ),
-              const _DetailBodyItem(
+               _DetailBodyItem(
                 title: "Eyelid",
-                value: "Droopy",
+                value: recognition?[0].nosewidth, //_Reverse
               ),
             ],
             rightChildren: [
-              const _DetailBodyItem(
+              _DetailBodyItem(
                 title: "Eye Size",
-                value: "Bid",
+                value: recognition?[0].eyesize,
               ),
               _DetailBodyItem(
                 title: "Eye Distance",
                 value: recognition?[0].eyedistance,
               ),
-              const _DetailBodyItem(
+              _DetailBodyItem(
                 title: "Eye Color",
-                value: "Green",
+                value: recognition?[0].eyeColor,
               ),
             ],
           ),
@@ -77,20 +77,20 @@ class PFAttributesAnalysisWidget extends StatelessWidget {
           _BodyItemWidget(
             title: "Brows",
             iconPath: IconPath.brow,
-            leftChildren: const [
+            leftChildren: [
               _DetailBodyItem(
                 title: "Eyebrow Shape",
-                value: "Rounded",
+                value: recognition?[0].noselength, //_Reverse
               ),
               _DetailBodyItem(
                 title: "Eyebrow Distance",
-                value: "Average",
+                value: recognition?[0].eyebrowdistance,
               ),
             ],
             rightChildren: [
-              const _DetailBodyItem(
+              _DetailBodyItem(
                 title: "Thickness",
-                value: "Average",
+                value: recognition?[0].faceshape, //_Reverse
               ),
               _DetailBodyItem(
                 title: "Eyebrow color",
@@ -107,10 +107,10 @@ class PFAttributesAnalysisWidget extends StatelessWidget {
           _BodyItemWidget(
             title: "Lips",
             iconPath: IconPath.lip,
-            leftChildren: const [
+            leftChildren: [
               _DetailBodyItem(
                 title: "Lip shape",
-                value: "Full",
+                value: recognition?[0].thinnes, //_Reverse
               ),
             ],
             rightChildren: [
@@ -139,13 +139,13 @@ class PFAttributesAnalysisWidget extends StatelessWidget {
           const Divider(
             height: 50,
           ),
-          const _BodyItemWidget(
+          _BodyItemWidget(
             title: "Nose",
             iconPath: IconPath.nose,
             leftChildren: [
               _DetailBodyItem(
                 title: "Nose Shape",
-                value: "Broad",
+                value: recognition?[0].eyelid, //_Reverse
               ),
             ],
           ),
@@ -160,7 +160,7 @@ class PFAttributesAnalysisWidget extends StatelessWidget {
                 title: "Face Shape",
                 valueWidget: Container(
                   height: 28,
-                  color: const Color(0xFF473209),
+                  color: Color.fromARGB(recognition?[0].hairColor['a'], recognition?[0].hairColor['r'], recognition?[0].hairColor['g'], recognition?[0].hairColor['b']),
                 ),
               ),
             ],
